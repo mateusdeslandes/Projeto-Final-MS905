@@ -76,25 +76,31 @@ tab1, tab2, tab3, tab4 = st.tabs([
 ## ABA 1: Introdução e Objetivo
 with tab1:
     st.header("📌 Introdução e Objetivo")
-    
-    st.markdown("""
-    ### Sobre o Dataset
-    O conjunto de dados Drug Consumption (Quantified) contém informações sobre:
-    - **Características demográficas**: Idade, gênero, educação, país, etnia
-    - **Traços de personalidade**: 5 dimensões de personalidade (NEO-FFI-R)
-    - **Padrões de consumo**: Uso de 16 substâncias (álcool, nicotina, drogas ilícitas, etc.)
-    
-    ### Objetivos da Análise
-    1. Identificar padrões de consumo entre diferentes grupos demográficos
-    2. Explorar relações entre traços de personalidade e uso de substâncias
-    3. Desenvolver um modelo preditivo para classificar usuários
-    4. Extrair insights para políticas de saúde pública e prevenção
-    
-    ### Metodologia
-    - **Análise exploratória**: Visualizações e estatísticas descritivas
-    - **Modelagem**: Algoritmo de classificação (Random Forest)
-    - **Interpretação**: Análise de importância de variáveis e métricas
-    """)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("""
+        ### Sobre o Dataset
+        O conjunto de dados Drug Consumption (Quantified) contém informações sobre:
+        - **Características demográficas**: Idade, gênero, educação, país, etnia
+        - **Traços de personalidade**: 5 dimensões de personalidade (NEO-FFI-R)
+        - **Padrões de consumo**: Uso de 16 substâncias (álcool, nicotina, drogas ilícitas, etc.)
+        
+        ### Metodologia
+        - **Análise exploratória**: Visualizações e testes estatísticos
+        - **Modelagem**: Algoritmo de classificação (Random Forest)
+        - **Interpretação**: Análise de importância de variáveis e métricas
+        """)
+
+    with col2:
+        st.markdown("""
+        ### Objetivos da Análise
+        1. Identificar padrões de consumo entre diferentes grupos demográficos
+        2. Explorar relações entre traços de personalidade e uso de substâncias
+        3. Desenvolver um modelo preditivo para classificar usuários
+        4. Extrair insights para políticas de saúde pública e prevenção
+        """)
 
 
 ## ABA 2: Análise Exploratória
@@ -108,24 +114,24 @@ with tab2:
     with col1:
         st.metric("Total de Respondentes", len(df))
         st.metric("Substâncias Analisadas", 16)
-        with st.expander("ℹ️ Lista de substâncias"):
+        with st.expander("ℹ️ Lista de substâncias estudadas"):
             st.markdown("""
-            - Alcohol
-            - Amphet
-            - Amyl
-            - Benzos
-            - Cannabis
-            - Coke          
-            - Crack  
-            - Ecstasy 
-            - Heroin
-            - Ketamine 
-            - Legalh 
-            - LSD 
-            - Meth
-            - Mushrooms
-            - Nicotine
-            - VSA
+            -Alcohol: álcool
+            -Amphet: anfetamina
+            -Amyl: nitrito de amila
+            -Benzos: benzodiazepina
+            -Cannabis: maconha
+            -Coke: cocaína
+            -Crack: crack
+            -Ecstasy: ecstasy
+            -Heroin: heroína
+            -Ketamine: ketamina
+            -Legalh: drogas legais sintéticas
+            -LSD: LSD
+            -Meth: metadona
+            -Mushroom: cogumelos alucinógenos
+            -Nicotine: nicotina
+            -VSA: substâncias voláteis
             """)
     with col2:
         # Seção 2: Distribuição Demográfica
@@ -255,7 +261,7 @@ with tab2:
         - **AScore (Amabilidade)**: Indica o grau de **cooperação, empatia e confiança** nos outros.  
         Ex: Escores altos sugerem maior capacidade de se relacionar harmoniosamente.
 
-        - **Cscore (Conscienciosidade)**: Mede o nível de **organização, disciplina e foco em metas**.  
+        - **Cscore (Consciência)**: Mede o nível de **organização, disciplina e foco em metas**.  
         Ex: Indivíduos com alto Cscore são mais responsáveis e persistentes.
 
         Os valores podem ser:
