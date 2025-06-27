@@ -116,22 +116,22 @@ with tab2:
         st.metric("Substâncias Analisadas", 16)
         with st.expander("ℹ️ Lista de substâncias estudadas"):
             st.markdown("""
-            -Alcohol: álcool
-            -Amphet: anfetamina
-            -Amyl: nitrito de amila
-            -Benzos: benzodiazepina
-            -Cannabis: maconha
-            -Coke: cocaína
-            -Crack: crack
-            -Ecstasy: ecstasy
-            -Heroin: heroína
-            -Ketamine: ketamina
-            -Legalh: drogas legais sintéticas
-            -LSD: LSD
-            -Meth: metadona
-            -Mushroom: cogumelos alucinógenos
-            -Nicotine: nicotina
-            -VSA: substâncias voláteis
+            - Alcohol: álcool
+            - Amphet: anfetamina
+            - Amyl: nitrato de amila
+            - Benzos: benzodiazepina
+            - Cannabis: maconha
+            - Coke: cocaína         
+            - Crack: crack 
+            - Ecstasy: ecstasy 
+            - Heroin: heroína
+            - Ketamine: ketamina
+            - Legalh: drogas legais sintéticas
+            - LSD: LSD
+            - Meth: metadona
+            - Mushrooms: cogumelos alucinógenos
+            - Nicotine: nicotina
+            - VSA: substâncias voláteis
             """)
     with col2:
         # Seção 2: Distribuição Demográfica
