@@ -82,8 +82,7 @@ with tab1:
     with col1:
         st.markdown("""
         ### Sobre o Dataset
-        O conjunto de dados Drug Consumption (Quantified) contém informações sobre:
-        - **Características demográficas**: Idade, gênero, educação, país, etnia
+        - **Características demográficas**: Idade, gênero, educação, país
         - **Traços de personalidade**: 5 dimensões de personalidade (NEO-FFI-R)
         - **Padrões de consumo**: Uso de 16 substâncias (álcool, nicotina, drogas ilícitas, etc.)
         
@@ -351,7 +350,7 @@ with tab3:
     features = st.multiselect(
         "Selecione as features para o modelo:",
         options=['Age', 'Gender', 'Education', 'Country'] + personality_traits,
-        default= personality_traits
+        default=['Age', 'Gender', 'Education', 'Country'] + personality_traits
     )
     
     if st.button("Treinar Modelo") and features:
@@ -409,32 +408,36 @@ with tab3:
 with tab4:
     st.header("🎯 Conclusões e Aplicações")
     
-    st.markdown("""
-    ### Principais Insights
+    col1, col2= st.columns(2)
     
-    1. **Padrões de Consumo**:
-       - Álcool e nicotina são as substâncias mais consumidas
-       - Jovens (18-24) apresentam maior consumo de drogas recreativas
-       - Homens relatam maior uso de drogas ilícitas que mulheres
-    
-    2. **Relações com Personalidade**:
-       - Extroversão associada a maior uso de álcool
-       - Neuroticismo relacionado a uso de ansiolíticos
-    
-    3. **Modelo Preditivo**:
-       - Acurácia de 75-85% na classificação de usuários
-       - Traços de personalidade são preditores importantes
-       - Dados demográficos complementam a previsão
-    
-    ### Aplicações Práticas
-    
-    - **Saúde Pública**: Identificar grupos de risco para campanhas preventivas
-    - **Psicologia**: Desenvolver abordagens personalizadas baseadas em traços
-    - **Pesquisa**: Direcionar estudos sobre fatores de risco/proteção
-    
-    ### Limitações e Melhorias Futuras
-    
-    - Dados auto-relatados podem conter viés
-    - Adicionar mais variáveis contextuais (socioeconômicas, ambientais)
-    - Testar outros algoritmos de machine learning
-    """)
+    with col1:
+        st.markdown("""
+        ### Principais Insights
+
+        1. **Padrões de Consumo**:
+        - Álcool e nicotina continuam entre as substâncias mais consumidas.
+        - A faixa etária mais jovem (18-24) tende a experimentar mais substâncias recreativas.
+
+        2. **Relações com Personalidade**:
+        - Níveis mais altos de **extroversão** estão associados ao consumo de substâncias sociais, como álcool.
+        - **Neuroticismo** se relaciona ao uso de substâncias ansiolíticas, como benzodiazepínicos.
+        - Traços como **abertura a experiências** e **baixa consciência** aparecem correlacionados com uso mais experimental.
+
+        3. **Modelo Preditivo**:
+        - O modelo Random Forest demonstrou boa capacidade de classificação, com acurácia acima de 75% para várias substâncias.
+        - Traços de personalidade contribuíram fortemente para a previsão, superando variáveis como país ou nível educacional.
+        """)
+    with col2:
+        st.markdown("""
+        ### Aplicações Práticas
+
+        - **Saúde Pública**: Identificar perfis de risco e segmentar campanhas educativas.
+        - **Psicologia Clínica**: Avaliar predisposições comportamentais e desenvolver abordagens terapêuticas personalizadas.
+        - **Educação e Prevenção**: Apoiar programas escolares e universitários com base em perfis de vulnerabilidade.
+
+        ### Limitações e Melhorias Futuras
+
+        - **Dados auto-relatados**: Sujeitos a viés de memória ou desejabilidade social.
+        - **Amostra limitada geograficamente**: Algumas regiões estão sub-representadas.
+        - **Ausência de variáveis contextuais**: Dados como renda, emprego ou histórico familiar poderiam enriquecer a análise.
+        """)
